@@ -2,20 +2,76 @@
 pub enum TileSlot {
     Wall,
     Grass,
-    Empty
+    TallGrass,
+    LowGrass,
+    Empty,
+    Poster,
+    Door,
+    LeftHouseCorner,
+    MainHouseFront,
+    RightHouseCorner,
+    LeftRiverBank,
+    RightRiverBank,
+    LeftRiverBankCorner,
+    RightRiverBankCorner,
+    TopRiverCenter,
+    River,
+    Fence
 }
 
 impl TileSlot {
     pub fn texture_index(&self) -> usize {
         match self {
-            TileSlot::Wall => {
+            TileSlot::Grass => {
                 0
             },
-            TileSlot::Grass => {
+            TileSlot::Wall => {
                 1
             },
-            TileSlot::Empty => {
+            TileSlot::Fence => {
                 2
+            },
+            TileSlot::TallGrass => {
+                3
+            },
+            TileSlot::LowGrass => {
+                4
+            },
+            TileSlot::Poster => {
+                5
+            },
+            TileSlot::Door => {
+                6
+            },
+            TileSlot::LeftHouseCorner => {
+                7
+            },
+            TileSlot::MainHouseFront => {
+                8
+            },
+            TileSlot::RightHouseCorner => {
+                9
+            },
+            TileSlot::LeftRiverBank => {
+                10
+            },
+            TileSlot::RightRiverBank => {
+                11
+            },
+            TileSlot::LeftRiverBankCorner => {
+                12
+            },
+            TileSlot::RightRiverBankCorner => {
+                13
+            },
+            TileSlot::TopRiverCenter => {
+                14
+            },
+            TileSlot::River => {
+                15
+            },
+            TileSlot::Empty => {
+                20
             }
         }
     }
@@ -67,15 +123,57 @@ impl Tile {
         let mut tile = Tile::new();
         match index {
             0 => {
-                tile.add_tile_slot(TileSlot::Wall);
-            },
-            1 => {
                 tile.add_tile_slot(TileSlot::Grass);
             },
-            2 => {
-                tile.add_tile_slot(TileSlot::Empty);
+            1 => {
+                tile.add_tile_slot(TileSlot::Fence);
             },
-            _=> {
+            2 => {
+                tile.add_tile_slot(TileSlot::Wall);
+            },
+            3 => {
+                tile.add_tile_slot(TileSlot::TallGrass);
+            },
+            4 => {
+                tile.add_tile_slot(TileSlot::Wall);
+            },
+            5 => {
+                tile.add_tile_slot(TileSlot::LowGrass);
+            },
+            6 => {
+                tile.add_tile_slot(TileSlot::Poster);
+            },
+            7 => {
+                tile.add_tile_slot(TileSlot::Door);
+            },
+            8 => {
+                tile.add_tile_slot(TileSlot::LeftHouseCorner);
+            },
+            9 => {
+                tile.add_tile_slot(TileSlot::MainHouseFront);
+            },
+            10 => {
+                tile.add_tile_slot(TileSlot::RightHouseCorner);
+            },
+            11 => {
+                tile.add_tile_slot(TileSlot::LeftRiverBank);
+            },
+            12 => {
+                tile.add_tile_slot(TileSlot::RightRiverBank);
+            },
+            13 => {
+                tile.add_tile_slot(TileSlot::LeftRiverBankCorner);
+            },
+            14 => {
+                tile.add_tile_slot(TileSlot::RightRiverBankCorner);
+            },
+            15 => {
+                tile.add_tile_slot(TileSlot::TopRiverCenter);
+            },
+            16 => {
+                tile.add_tile_slot(TileSlot::River);
+            }
+            _ => {
                 tile.add_tile_slot(TileSlot::Empty);
             }
         }

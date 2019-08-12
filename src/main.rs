@@ -37,12 +37,22 @@ fn game(mut engine: Engine) {
 
     let mut clock = Clock::new(144);
 
-    let mut world  = [[Tile::new(); 30];30];
-
-    let textures = vec![engine.texture_create(include_bytes!("../PokemonSprites/36.png").as_ref(), TextureFormat::PNG),
+    let textures = vec![engine.texture_create(include_bytes!("../PokemonSprites/0.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/42.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/62.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/43.png").as_ref(), TextureFormat::PNG),
                         engine.texture_create(include_bytes!("../PokemonSprites/32.png").as_ref(), TextureFormat::PNG),
-                        engine.texture_create(include_bytes!("../PokemonSprites/17.png").as_ref(), TextureFormat::PNG),
-                        engine.texture_create(include_bytes!("../PokemonSprites/24.png").as_ref(), TextureFormat::PNG)];
+                        engine.texture_create(include_bytes!("../PokemonSprites/35.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/23.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/55.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/57.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/58.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/79.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/81.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/76.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/78.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/77.png").as_ref(), TextureFormat::PNG),
+                        engine.texture_create(include_bytes!("../PokemonSprites/80.png").as_ref(), TextureFormat::PNG),];
 
     engine.window_clear_color(storm::color::BLACK);
     let screen = engine.batch_create(&BatchSettings::default());
@@ -101,14 +111,14 @@ fn game(mut engine: Engine) {
 
         
 
-        for x in 0..30 {
-            for y in 0..30 {
-               overworld.sprites[x * 30 + y].texture = textures[overworld.map_tiles[x][y].get_top_tile_slot().texture_index()];
+        for x in 0..20 {
+            for y in 0..18 {
+               overworld.sprites[x * 18 + y].texture = textures[overworld.map_tiles[x][y].get_top_tile_slot().texture_index()];
             }
         }
 
         engine.sprite_set(&screen, &overworld.sprites);
-//    
+
         engine.window_commit();
         clock.tick();
     }
